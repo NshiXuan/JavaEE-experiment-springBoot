@@ -3,6 +3,7 @@ package com.sx.common.shiro;
 import com.sx.common.cache.Caches;
 import com.sx.common.util.JsonVos;
 import com.sx.pojo.result.CodeMsg;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.AccessControlFilter;
 
 import javax.servlet.ServletRequest;
@@ -54,6 +55,7 @@ public class TokenFilter extends AccessControlFilter {
     }
 
     // TODO 鉴权
+    SecurityUtils.getSubject().login(new Token(token));
 
     return true;
   }

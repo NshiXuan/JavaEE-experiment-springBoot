@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.sx.common.cache.Caches;
 import com.sx.common.mapStruct.MapStructs;
 import com.sx.common.shiro.TokenFilter;
+import com.sx.common.util.Constants;
 import com.sx.common.util.JsonVos;
 import com.sx.filter.ErrorFilter;
 import com.sx.pojo.po.Users;
@@ -18,6 +19,7 @@ import com.sx.service.UsersService;
 import com.wf.captcha.utils.CaptchaUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,6 +58,12 @@ public class UsersController extends BaseController<Users, UsersReqVo> {
     // System.out.println("logout" + token);
     Caches.removeToken(token);
     return JsonVos.ok();
+  }
+
+  @Override
+  @RequiresPermissions(Constants.Permisson.USER_REMOVE)
+  public JsonVo remove(String id) {
+    return super.remove(id);
   }
 
   @Override

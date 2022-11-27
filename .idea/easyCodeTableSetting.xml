@@ -124,6 +124,74 @@
             </TableInfoDTO>
           </value>
         </entry>
+        <entry key="experiment.permission">
+          <value>
+            <TableInfoDTO>
+              <option name="comment" value="权限表" />
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="主键" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="id" />
+                    <option name="type" value="java.lang.Short" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="名称" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="name" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="权限标识" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="permission" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Permission" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="experiment" />
+              <option name="savePackageName" value="com.sx" />
+              <option name="savePath" value="./src/main/java/com/sx" />
+              <option name="templateGroupName" value="MybatisPlus_SX" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="experiment.user_permission">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="用户id" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="userId" />
+                    <option name="type" value="java.lang.Short" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="comment" value="权限id" />
+                    <option name="custom" value="false" />
+                    <option name="ext" value="{}" />
+                    <option name="name" value="permissionId" />
+                    <option name="type" value="java.lang.Short" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="UserPermission" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="experiment" />
+              <option name="savePackageName" value="com.sx" />
+              <option name="savePath" value="./src/main/java/com/sx" />
+              <option name="templateGroupName" value="MybatisPlus_SX" />
+            </TableInfoDTO>
+          </value>
+        </entry>
         <entry key="experiment.users">
           <value>
             <TableInfoDTO>

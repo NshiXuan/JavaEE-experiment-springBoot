@@ -29,12 +29,12 @@ public class SwaggerCfg implements InitializingBean {
   private boolean enable;
 
   @Bean
-  public Docket docket(){
+  public Docket docket() {
     return basicDocket()
-              .apiInfo(apiInfo("接口文档", "一个测试的接口文档"))
-              .select()
-              .apis(RequestHandlerSelectors.basePackage("com.sx.controller"))
-              .build();
+            .apiInfo(apiInfo("接口文档", "一个测试的接口文档"))
+            .select()
+            .apis(RequestHandlerSelectors.withMethodAnnotation(ApiOperation.class))
+            .build();
   }
 
   private Docket basicDocket() {
