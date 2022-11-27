@@ -25,8 +25,8 @@
             <!-- <ttl unit="days">7</ttl> -->
 
             <!-- time to idle 只要7天内又访问，就延长为7天过期 -->
-<!--            <tti unit="days">7</tti>-->
-            <tti unit="seconds">10</tti>
+                        <tti unit="days">7</tti>
+<!--            <tti unit="seconds">10</tti>-->
         </expiry>
     </cache>
 

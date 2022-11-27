@@ -4,6 +4,7 @@ import com.sx.filter.ErrorFilter;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -56,5 +57,13 @@ public class ShiroCfg {
 
 
     return filterFactoryBean;
+  }
+
+  /* 解决 @RequiresPermissions() 导致控制器接口404 */
+  @Bean
+  public DefaultAdvisorAutoProxyCreator proxyCreator() {
+    DefaultAdvisorAutoProxyCreator proxyCreator = new DefaultAdvisorAutoProxyCreator();
+    proxyCreator.setUsePrefix(true);
+    return proxyCreator;
   }
 }

@@ -2,8 +2,11 @@ package com.sx.common.exception;
 
 import com.sx.common.util.JsonVos;
 import com.sx.common.util.Streams;
+import com.sx.pojo.result.CodeMsg;
 import com.sx.pojo.vo.JsonVo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.authz.AuthorizationException;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindException;
@@ -13,8 +16,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
 import java.util.List;
@@ -37,6 +38,10 @@ public class CommonExceptionHandle {
       return handle((ConstraintViolationException) t);
     } else if (t instanceof ServletException) {
       return handle((CommonException) t.getCause());
+    } else if (t instanceof AuthorizationException) {
+      return JsonVos.error(CodeMsg.NO_PERMISSION);
+    } else if (t instanceof DuplicateKeyException) {
+      return JsonVos.error("已存在");
     }
 
     // 其它异常 处理cause的异常，递归到cause为上面的4种异常或者没有cause异常

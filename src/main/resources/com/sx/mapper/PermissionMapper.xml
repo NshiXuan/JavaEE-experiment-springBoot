@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sx.mapper.PermissionMapper">
+    <resultMap id="rmSelectPermission" type="Permission">
+    </resultMap>
+
+    <select id="selectPermission" resultMap="rmSelectPermission">
+        SELECT p.id, p.name, p.permission
+        FROM users u
+                 JOIN user_permission up on u.id = up.user_id
+                 JOIN permission p on up.permission_id = p.id
+        WHERE u.id = #{usrId}
+    </select>
+</mapper>

@@ -27,6 +27,10 @@ public class JsonVos {
     return new JsonVo(code, msg);
   }
 
+  public static JsonVo error(CodeMsg msg) {
+    return new JsonVo(msg);
+  }
+
   public static JsonVo error() {
     return new JsonVo(false);
   }
